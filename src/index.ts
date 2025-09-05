@@ -166,3 +166,32 @@ function listAllStudents(): void {
     console.log(`${index + 1}. ${studentName}`)
   );
 }
+
+function start(): void {
+  while (true) {
+    console.log("Student Database");
+    console.log("1. Add student");
+    console.log("2. View report");
+    console.log("3. List students");
+    console.log("4. Exit");
+
+    const choice = prompt("Enter your choice (1-4): ");
+
+    if (choice === "1") {
+      addStudentHandler();
+    } else if (choice === "2") {
+      viewReport();
+    } else if (choice === "3") {
+      listAllStudents();
+    } else if (choice === "4") {
+      console.log("Goodbye!");
+      break;
+    } else {
+      console.log("Invalid choice. Please enter 1, 2, 3, or 4.");
+    }
+
+    prompt("Press Enter to continue");
+  }
+}
+
+start();
