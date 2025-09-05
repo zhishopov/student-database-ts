@@ -1,4 +1,4 @@
-export type Subject = "Math" | "English" | "History";
+export type Subject = "English" | "Math" | "History";
 
 export type LetterGrade =
   | "A"

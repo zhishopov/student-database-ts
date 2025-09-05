@@ -1,24 +1,27 @@
 import promptSync from "prompt-sync";
+import type { Student } from "./types.js";
 
 const prompt = promptSync();
 
-console.log("Welcome to Student Database CLI!");
-console.log("Please choose an option:");
-console.log("1. Add student");
-console.log("2. View report card");
-console.log("3. List students");
-console.log("4. Exit");
+const students: Student[] = [];
 
-const choice = prompt("Enter your choice (1-4): ");
+function createStudent(
+  name: string,
+  english: number,
+  math: number,
+  history: number
+): Student {
+  return { name, grades: { English: english, Math: math, History: history } };
+}
 
-if (choice === "1") {
-  console.log("You want to add a student.");
-} else if (choice === "2") {
-  console.log("You want to view a report card.");
-} else if (choice === "3") {
-  console.log("You want to list all students.");
-} else if (choice === "4") {
-  console.log("Goodbye!");
-} else {
-  console.log("Invalid choice. Please try again.");
+function addStudent(student: Student): void {
+  students.push(student);
+}
+
+function getStudentByName(name: string): Student | undefined {
+  return students.find((student) => student.name === name);
+}
+
+function getAllStudentNames(): string[] {
+  return students.map((student) => student.name);
 }
