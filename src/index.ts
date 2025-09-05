@@ -1,5 +1,5 @@
 import promptSync from "prompt-sync";
-import type { LetterGrade, Student } from "./types.js";
+import type { LetterGrade, Student, Subject } from "./types.js";
 
 const prompt = promptSync();
 
@@ -114,4 +114,42 @@ function addStudentHandler(): void {
   const student = createStudent(name, english, math, history);
   addStudent(student);
   console.log("Student created!");
+}
+
+function viewReport(): void {
+  console.log("View Report:");
+
+  const name = prompt("Enter Student Name: ");
+  if (name.length === 0) {
+    console.log("Name cannot be empty.");
+    return;
+  }
+
+  const student = getStudentByName(name);
+  if (!student) {
+    console.log("Student not found!");
+    return;
+  }
+
+  const records: { subject: Subject; percent: number; letter: LetterGrade }[] =
+    [];
+
+  for (const [subject, percent] of Object.entries(student.grades) as [
+    Subject,
+    number
+  ][]) {
+    records.push({ subject, percent, letter: gradeToLetter(percent) });
+  }
+
+  const averagePercentage = averagePercent(student);
+  const avrgGpa = averageGpa(student);
+
+  console.log(`Report for ${student.name}:`);
+  for (const record of records) {
+    const subj = record.subject;
+    console.log(`${subj}: ${record.percent.toFixed(2)}% (${record.letter})`);
+    console.log(
+      `Average: ${averagePercentage.toFixed(2)}% GPA: ${avrgGpa.toFixed(2)}`
+    );
+  }
 }
