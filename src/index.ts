@@ -77,3 +77,41 @@ function averageGpa(student: Student): number {
 
   return average;
 }
+
+function addStudentHandler(): void {
+  console.log("Add Student:");
+
+  const name = prompt("Enter Student Name: ");
+  if (name.length === 0) {
+    console.log("Name cannot be empty.");
+    return;
+  }
+
+  const englishInput = prompt("English %: ");
+  const english = Number(englishInput);
+
+  if (isNaN(english) || english < 0 || english > 100) {
+    console.log("English grade must be a number between 0 and 100.");
+    return;
+  }
+
+  const mathInput = prompt("Math %: ");
+  const math = Number(mathInput);
+
+  if (isNaN(math) || math < 0 || math > 100) {
+    console.log("Math grade must be a number between 0 and 100.");
+    return;
+  }
+
+  const historyInput = prompt("History %: ");
+  const history = Number(historyInput);
+
+  if (isNaN(history) || history < 0 || history > 100) {
+    console.log("History grade must be a number between 0 and 100.");
+    return;
+  }
+
+  const student = createStudent(name, english, math, history);
+  addStudent(student);
+  console.log("Student created!");
+}
