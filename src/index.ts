@@ -141,17 +141,17 @@ function viewReport(): void {
     records.push({ subject, percent, letter: gradeToLetter(percent) });
   }
 
-  const averagePercentage = averagePercent(student);
-  const avrgGpa = averageGpa(student);
-
   console.log(`Report for ${student.name}:`);
   for (const record of records) {
     const subj = record.subject;
     console.log(`${subj}: ${record.percent.toFixed(2)}% (${record.letter})`);
-    console.log(
-      `Average: ${averagePercentage.toFixed(2)}% GPA: ${avrgGpa.toFixed(2)}`
-    );
   }
+
+  const averagePercentage = averagePercent(student);
+  const avrgGpa = averageGpa(student);
+  console.log(
+    `Average: ${averagePercentage.toFixed(2)}% GPA: ${avrgGpa.toFixed(2)}`
+  );
 }
 
 function listAllStudents(): void {
