@@ -15,12 +15,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/zhishopov/student-database-ts/issues"
   },
   "homepage": "https://github.com/zhishopov/student-database-ts#readme",
   "devDependencies": {
+    "@types/node": "^24.3.1",
+    "@types/prompt-sync": "^4.2.3",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
   }
 }
