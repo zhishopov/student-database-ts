@@ -153,3 +153,16 @@ function viewReport(): void {
     );
   }
 }
+
+function listAllStudents(): void {
+  console.log("All Students:");
+
+  const names = getAllStudentNames();
+  if (names.length === 0) {
+    console.log("No students.");
+    return;
+  }
+  names.forEach((studentName, index) =>
+    console.log(`${index + 1}. ${studentName}`)
+  );
+}
