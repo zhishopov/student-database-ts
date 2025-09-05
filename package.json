@@ -1,0 +1,26 @@
+{
+  "name": "student-database-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc && node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhishopov/student-database-ts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/zhishopov/student-database-ts/issues"
+  },
+  "homepage": "https://github.com/zhishopov/student-database-ts#readme",
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
